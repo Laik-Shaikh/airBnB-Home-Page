@@ -17,7 +17,7 @@ import {
   carouselImage,
   fixedBottom,
 } from "../themes/styles";
-import './CarouselCard.css';
+
 
 const CarouselCard = ({ location }) => {
   return (
