@@ -1,24 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Header from "./components/Header";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Categories from "./components/Categories";
+import Container from "@mui/material/Container";
+import Cards from "./components/Cards";
+import Footer from "./components/Footer";
+import { displayOnDesktop } from "./themes/styles";
+import MobileFooter from './components/MobileFooter';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <CssBaseline />
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          height: "100vh",
+        }}
+      >
+        <Box>
+          <Header />
+          <Categories />
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            flexGrow: 1,
+            height: 100,
+            overflowY: "scroll",
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Container maxWidth="xl" sx={{ mb: 3 }}>
+            <Cards />
+            <Box
+              sx={{
+                display: { xs: "flex", md: "none" },
+              }}
+            >
+              <MobileFooter />
+            </Box>
+          </Container>
+        </Box>
+        <Box sx={displayOnDesktop}>
+          <Footer />
+        </Box>
+      </Box>
+    </>
   );
 }
 
